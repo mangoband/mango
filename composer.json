@@ -1,0 +1,22 @@
+{
+    "name": "mango/cflash",    
+    "type": "library",
+    "description": "PHP class flashing info",
+    "keywords": ["module", "framework", "micro", "education"],
+    "homepage": "http://dbwebb.se",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcus Johansson",
+            "email": "git@marcusjohansson.net",
+            "homepage": "http://marcusjohansson.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": { "Mango\\": "src/" }
+    }
+}

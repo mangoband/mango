@@ -1,0 +1,16 @@
+
+Before you can test this module you need to do following:
+
+
+1. Copy the css file to your css folder and include it.
+
+   $app->theme->addStylesheet('css/flash.css');
+   
+
+2. Add CFlash as a service
+
+   $di->set('MangoFlash', function() use ($di) {
+            $flash = new \Mango\Flash();
+            $flash->setDI($di);
+            return $flash;
+        });
