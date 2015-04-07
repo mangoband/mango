@@ -16,7 +16,7 @@ Before you can test this module you need to do following:
         });
 
 
-3. Add following lines.
+3. Add following lines to your controller.
 
    $app->theme->addStylesheet('css/flash.css');
    $message = "Just a test...";

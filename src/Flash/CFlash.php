@@ -95,7 +95,7 @@ class CFlash  implements \Anax\DI\IInjectionAware
                 
                 
                 $c = 'flash_notice';
-                $m = $now.": Hello! ".$this->session->get('flash_hello');
+                $m = "Hello ".$this->session->get('flash_hello');
                 unset( $_SESSION['flash_hello']);
                 break;
             
@@ -105,9 +105,6 @@ class CFlash  implements \Anax\DI\IInjectionAware
         return "\n\t<p class='{$c}'>{$m}</p>";
     }
    
-    public function hello( $name ){
-        return "<p class='flash_notice'>Hello {$name}!!!</p>";
-    }
     
     
 }
