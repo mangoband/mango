@@ -14,3 +14,25 @@ Before you can test this module you need to do following:
             $flash->setDI($di);
             return $flash;
         });
+
+
+3. Add following lines.
+
+   $app->theme->addStylesheet('css/flash.css');
+   $message = "Just a test...";
+   
+   $flash = new \Mango\Flash\CFlash();
+   
+   $app->MangoFlash->set( $message , $type = 'notice' );
+   $app->MangoFlash->set( $message , $type = 'warning' );
+   $app->MangoFlash->set( $message , $type = 'error' );
+   $app->MangoFlash->set( $message , $type = 'success' );
+   
+   $notice     = $app->MangoFlash->get('notice');
+   $warning    = $app->MangoFlash->get('warning');
+   $error      = $app->MangoFlash->get('error');
+   $success    = $app->MangoFlash->get('success');
+   
+4. Print out your message with this or similar
+
+   $app->theme->setVariable('main', $notice);
