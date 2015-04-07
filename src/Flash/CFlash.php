@@ -1,9 +1,9 @@
 <?php
 namespace Mango\Flash;
 
-if (session_status() == PHP_SESSION_NONE) {
+//if (session_status() == PHP_SESSION_NONE) {
     session_start();
-}
+
 class CFlash{
     
     
@@ -25,9 +25,11 @@ class CFlash{
     /**
      *  set
      *  @param string $message  Your description
-     *  @param string $type     Kind of message ( notice || error || warning )
+     *  @param string $type     Kind of message ( notice || error || warning || success )
      */  
     public function set( $message = '', $type = 'notice' ){
+        $type = strtolower( $type );
+        echo $message; die();
         switch( $type ){
             
             case 'notice':
