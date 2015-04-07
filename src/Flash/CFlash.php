@@ -88,7 +88,8 @@ class CFlash  implements \Anax\DI\IInjectionAware
             
             
         }
-        return "<p class='{$c}'>{$m}</p>";
+        
+        return "\n\t<p class='{$c}'>{$m}</p>";
     }
    
     public function hello( $name ){
