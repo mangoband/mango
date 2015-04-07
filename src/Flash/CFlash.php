@@ -39,6 +39,11 @@ class CFlash  implements \Anax\DI\IInjectionAware
                 $this->session->set('flash_success', $message);
                 break;
             
+            case 'hello':
+                
+                $this->session->set('flash_hello', $message);
+                break;
+            
         }
         
         
@@ -86,9 +91,17 @@ class CFlash  implements \Anax\DI\IInjectionAware
                 unset( $_SESSION['flash_success']);
                 break;
             
+            case 'hello':
+                
+                
+                $c = 'flash_notice';
+                $m = $now.": Hello! ".$this->session->get('flash_hello');
+                unset( $_SESSION['flash_hello']);
+                break;
+            
             
         }
-        
+     
         return "\n\t<p class='{$c}'>{$m}</p>";
     }
    

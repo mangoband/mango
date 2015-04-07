@@ -7,7 +7,7 @@ echo var_dump( $rootPath[0] )."<br />";
            // $p = explode('?', $p[1]);
             echo var_dump( $_SERVER['DOCUMENT_ROOT'])."<br />";
 
-include $_SERVER['DOCUMENT_ROOT'].$rootPath[0].'webroot/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].$rootPath[0].'webroot/config.php';
 
 
 $di  = new \Anax\DI\CDIFactoryDefault();
