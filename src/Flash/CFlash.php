@@ -29,7 +29,7 @@ class CFlash{
      */  
     public function set( $message = '', $type = 'notice' ){
         $type = strtolower( $type );
-        echo $message; die();
+        
         switch( $type ){
             
             case 'notice':
