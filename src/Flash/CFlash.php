@@ -102,8 +102,8 @@ class CFlash{
         return "<p class='{$c}'>{$m}</p>";
     }
    
-    public function hello(){
-        return 'Hello!!!';
+    public function hello( $name ){
+        return "<p class='flash_notice'>Hello {$name}!!!</p>";
     }
     
 }
