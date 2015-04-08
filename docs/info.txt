@@ -3,36 +3,40 @@ Before you can test this module you need to do following:
 
 
 1. Copy the css file to your css folder and include it.
-
+   
+   vendor/mango/cflash/copy-content-to-css-folder
+   
    $app->theme->addStylesheet('css/flash.css');
    
 
 2. Add CFlash as a service
 
    $di->set('MangoFlash', function() use ($di) {
-            $flash = new \Mango\Flash();
+            $flash = new \Mango\Flash\CFlash();
             $flash->setDI($di);
             return $flash;
         });
 
+3. Write your message
 
-3. Add following lines to your controller.
 
-   $app->theme->addStylesheet('css/flash.css');
    $message = "Just a test...";
+
    
-   $flash = new \Mango\Flash\CFlash();
+4. When setting type of flashmessage you have five to use.
    
-   $app->MangoFlash->set( $message , $type = 'notice' );
-   $app->MangoFlash->set( $message , $type = 'warning' );
-   $app->MangoFlash->set( $message , $type = 'error' );
+ 
+      hello || notice || warning || error || success
+   
+   
+   $app->MangoFlash->set( $message , $type = 'your type' );
    $app->MangoFlash->set( $message , $type = 'success' );
    
-   $notice     = $app->MangoFlash->get('notice');
-   $warning    = $app->MangoFlash->get('warning');
-   $error      = $app->MangoFlash->get('error');
+   $mangoFlash = $app->MangoFlash->get('notice');
    $success    = $app->MangoFlash->get('success');
    
-4. Print out your message with this or similar
+   
+5. Print out your message with this or similar
 
-   $app->theme->setVariable('main', $notice);
+
+   $app->theme->setVariable('main', $mangoFlash);
