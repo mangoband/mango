@@ -4,7 +4,7 @@ namespace Mango\Flash;
 /**
  *  Flash message
  */
-class CFlash  implements \Anax\DI\IInjectionAware
+class CFlash implements \Anax\DI\IInjectionAware
 {
     use \Anax\DI\TInjectable;
     
