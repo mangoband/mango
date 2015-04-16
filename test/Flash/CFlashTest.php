@@ -10,7 +10,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      *  vars for testing
      */  
     private $msg        = 'message';
-    private $CFlash     = null;
+    private $CF         = null;
     private $textEnd    = '</p>';
     
     public function __construct(){
@@ -30,6 +30,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
             
             return $session;
         });
+        return $m;
        
     }
     /**
@@ -64,7 +65,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
         
         $m = $this->getDI();       
         $m->set($this->msg, 'notice' );
-        $this->assertStringEndsWith($this->textEnd, $r);
+        $this->assertStringEndsWith($this->textEnd, $m->get('notice'));
         
     }
     
