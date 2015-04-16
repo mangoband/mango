@@ -5,14 +5,7 @@ namespace Mango\Flash;
  *  Test Flash message
  */
 class CFlashTest extends \PHPUnit_Framework_TestCase {
-    private $class;
-    public function __construct(){
-        try{
-            $this->class = new \Mango\Flash\CFlash();
-        }catch(Exception $e){
-            $this->class = null;
-        }
-    }
+    
     
     /**
      *  test null Notice
@@ -27,24 +20,34 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
          $this->assertNull($expected);    
     }
     
+    /**
+     *  test wrong value in
+     */
+    public function testWrongValueNotice(){
+        
+        $m = new CFlash();
+        $msg = 'message';
+        $expected = $m->set($msg, 'wrong' );
+        $r = $m->get('wrong');
+       
+         $this->assertNull($expected);    
+    }
+    
     
     /**
      *  test SetAndGet Notice
      */
     public function testSetAndGetNotice(){
         
-        if($this->class) {
-            
-        
         $m = new CFlash();
         $msg = 'message';
         $m->set($msg, 'notice' );
         $r = $m->get('notice');
-        $expected = $msg;
-        $this->assertStringEndsWith('</p>', $r);
+        $expected = '</p>';
+        $this->assertStringEndsWith($expected, $r);
         
         
-        }
+        
     }
     
     /**
@@ -57,7 +60,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
         $msg = 'message';
         $m->set($msg, 'error' );
         $r = $m->get('error');
-        $expected = $msg;
+        $expected = '</p>';
         $this->assertStringEndsWith('</p>', $r);
       
     }
@@ -72,7 +75,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
         $msg = 'message';
         $m->set($msg, 'warning' );
         $r = $m->get('warning');
-        $expected = $msg;
+        $expected = '</p>';
         $this->assertStringEndsWith('</p>', $r);
        
     }
@@ -87,7 +90,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
         $msg = 'message';
         $m->set($msg, 'success' );
         $r = $m->get('success');
-        $expected = $msg;
+        $expected = '</p>';
         $this->assertStringEndsWith('</p>', $r);
         
     }
@@ -103,7 +106,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
         $msg = 'message';
         $m->set($msg, 'hello' );
         $r = $m->get('hello');
-        $expected = $msg;
+        $expected = '</p>';
         $this->assertStringEndsWith('</p>', $r);
         
     }
