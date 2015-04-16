@@ -10,7 +10,6 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      *  vars for testing
      */  
     private $msg        = 'message';
-    private $CF         = null;
     private $textEnd    = '</p>';
     
     public function __construct(){
@@ -107,17 +106,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetHello(){
         
-        $di    = new \Anax\DI\CDIFactoryDefault();
-        $m = new CFlash();
-        $m->setDI($di);
-        
-        $di->setShared('session', function () {
-            $session = new \Anax\Session\CSession();
-            $session->configure(ANAX_APP_PATH . 'config/session.php');
-            $session->name();
-            //$session->start();
-            return $session;
-        });
+        $$m = $this->getDI();
         
         $m->set($this->msg, 'hello' );
         $this->assertStringEndsWith($this->textEnd, $m->get('hello'));
