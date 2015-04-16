@@ -18,11 +18,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
         
     }
     
-    /**
-     *  test null Notice
-     */
-    public function testNullNotice(){
-        
+    protected function getDI(  ){
         $di    = new \Anax\DI\CDIFactoryDefault();
         $m = new CFlash();
         $m->setDI($di);
@@ -31,9 +27,17 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
             $session = new \Anax\Session\CSession();
             $session->configure(ANAX_APP_PATH . 'config/session.php');
             $session->name();
-            //$session->start();
+            
             return $session;
         });
+        return $m;
+    }
+    /**
+     *  test null Notice
+     */
+    public function testNullNotice(){
+        
+        $m = $this->getDI();
         
         $r = $m->get('notice');
         $this->assertNull($m->set($this->msg, '' ));
@@ -45,17 +49,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testWrongValueNotice(){
         
-        $di    = new \Anax\DI\CDIFactoryDefault();
-        $m = new CFlash();
-        $m->setDI($di);
-        
-        $di->setShared('session', function () {
-            $session = new \Anax\Session\CSession();
-            $session->configure(ANAX_APP_PATH . 'config/session.php');
-            $session->name();
-            //$session->start();
-            return $session;
-        });
+        $m = $this->getDI();
         
         $r = $m->get('wrong');
          $this->assertNull($m->set($this->msg, 'wrong' ));
@@ -68,17 +62,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetNotice(){
         
-        $di    = new \Anax\DI\CDIFactoryDefault();
-        $m = new CFlash();
-        $m->setDI($di);
-        
-        $di->setShared('session', function () {
-            $session = new \Anax\Session\CSession();
-            $session->configure(ANAX_APP_PATH . 'config/session.php');
-            $session->name();
-            //$session->start();
-            return $session;
-        });
+        $m = $this->getDI();
         
         $m->set($this->msg, 'notice' );
         $r = $m->get('notice');
@@ -91,17 +75,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetError(){
         
-        $di    = new \Anax\DI\CDIFactoryDefault();
-        $m = new CFlash();
-        $m->setDI($di);
-        
-        $di->setShared('session', function () {
-            $session = new \Anax\Session\CSession();
-            $session->configure(ANAX_APP_PATH . 'config/session.php');
-            $session->name();
-            //$session->start();
-            return $session;
-        });
+        $m = $this->getDI();
         
         $m->set($this->msg, 'error' );
         $r = $m->get('error');
@@ -114,17 +88,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetWarning(){
         
-        $di    = new \Anax\DI\CDIFactoryDefault();
-        $m = new CFlash();
-        $m->setDI($di);
-        
-        $di->setShared('session', function () {
-            $session = new \Anax\Session\CSession();
-            $session->configure(ANAX_APP_PATH . 'config/session.php');
-            $session->name();
-            //$session->start();
-            return $session;
-        });
+        $m = $this->getDI();
         
         $m->set($this->msg, 'warning' );
         $r = $m->get('warning');
@@ -137,17 +101,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetSuccess(){
         
-        $di    = new \Anax\DI\CDIFactoryDefault();
-        $m = new CFlash();
-        $m->setDI($di);
-        
-        $di->setShared('session', function () {
-            $session = new \Anax\Session\CSession();
-            $session->configure(ANAX_APP_PATH . 'config/session.php');
-            $session->name();
-            //$session->start();
-            return $session;
-        });
+        $m = $this->getDI();
         
         $m->set($this->msg, 'success' );
         $r = $m->get('success');
