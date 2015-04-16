@@ -23,9 +23,8 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
     public function testNullNotice(){
         
         $m = new CFlash();
-        $expected = $m->set($this->msg, '' );
         $r = $m->get('notice');
-        $this->assertNull($expected);
+        $this->assertNull($m->set($this->msg, '' ));
         $this->assertStringEndsWith($this->textEnd, $r);
     }
     
@@ -35,9 +34,8 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
     public function testWrongValueNotice(){
         
         $m = new CFlash();
-        $expected = $m->set($this->msg, 'wrong' );
         $r = $m->get('wrong');
-         $this->assertNull($expected);
+         $this->assertNull($m->set($this->msg, 'wrong' ));
          $this->assertNull($r);
     }
     
