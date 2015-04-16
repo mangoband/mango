@@ -15,6 +15,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
     
     public function __construct(){
         $this->CFlash = new CFlash();
+        
     }
     
     /**
@@ -22,7 +23,18 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testNullNotice(){
         
+        $di    = new \Anax\DI\CDIFactoryDefault();
         $m = new CFlash();
+        $m->setDI($di);
+        
+        $di->setShared('session', function () {
+            $session = new \Anax\Session\CSession();
+            $session->configure(ANAX_APP_PATH . 'config/session.php');
+            $session->name();
+            //$session->start();
+            return $session;
+        });
+        
         $r = $m->get('notice');
         $this->assertNull($m->set($this->msg, '' ));
         $this->assertStringEndsWith($this->textEnd, $r);
@@ -33,7 +45,18 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testWrongValueNotice(){
         
+        $di    = new \Anax\DI\CDIFactoryDefault();
         $m = new CFlash();
+        $m->setDI($di);
+        
+        $di->setShared('session', function () {
+            $session = new \Anax\Session\CSession();
+            $session->configure(ANAX_APP_PATH . 'config/session.php');
+            $session->name();
+            //$session->start();
+            return $session;
+        });
+        
         $r = $m->get('wrong');
          $this->assertNull($m->set($this->msg, 'wrong' ));
          $this->assertNull($r);
@@ -45,7 +68,18 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetNotice(){
         
+        $di    = new \Anax\DI\CDIFactoryDefault();
         $m = new CFlash();
+        $m->setDI($di);
+        
+        $di->setShared('session', function () {
+            $session = new \Anax\Session\CSession();
+            $session->configure(ANAX_APP_PATH . 'config/session.php');
+            $session->name();
+            //$session->start();
+            return $session;
+        });
+        
         $m->set($this->msg, 'notice' );
         $r = $m->get('notice');
         $this->assertStringEndsWith($this->textEnd, $r);
@@ -57,7 +91,18 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetError(){
         
-        $m = new \Mango\Flash\CFlash();
+        $di    = new \Anax\DI\CDIFactoryDefault();
+        $m = new CFlash();
+        $m->setDI($di);
+        
+        $di->setShared('session', function () {
+            $session = new \Anax\Session\CSession();
+            $session->configure(ANAX_APP_PATH . 'config/session.php');
+            $session->name();
+            //$session->start();
+            return $session;
+        });
+        
         $m->set($this->msg, 'error' );
         $r = $m->get('error');
         $this->assertStringEndsWith($this->textEnd, $r);
@@ -69,7 +114,18 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetWarning(){
         
-        $m = new \Mango\Flash\CFlash();
+        $di    = new \Anax\DI\CDIFactoryDefault();
+        $m = new CFlash();
+        $m->setDI($di);
+        
+        $di->setShared('session', function () {
+            $session = new \Anax\Session\CSession();
+            $session->configure(ANAX_APP_PATH . 'config/session.php');
+            $session->name();
+            //$session->start();
+            return $session;
+        });
+        
         $m->set($this->msg, 'warning' );
         $r = $m->get('warning');
         $this->assertStringEndsWith($this->textEnd, $r);
@@ -81,7 +137,18 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetSuccess(){
         
-        $m = new \Mango\Flash\CFlash();
+        $di    = new \Anax\DI\CDIFactoryDefault();
+        $m = new CFlash();
+        $m->setDI($di);
+        
+        $di->setShared('session', function () {
+            $session = new \Anax\Session\CSession();
+            $session->configure(ANAX_APP_PATH . 'config/session.php');
+            $session->name();
+            //$session->start();
+            return $session;
+        });
+        
         $m->set($this->msg, 'success' );
         $r = $m->get('success');
         $this->assertStringEndsWith($this->textEnd, $r);
@@ -93,7 +160,18 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetHello(){
         
-        $m = new \Mango\Flash\CFlash();
+        $di    = new \Anax\DI\CDIFactoryDefault();
+        $m = new CFlash();
+        $m->setDI($di);
+        
+        $di->setShared('session', function () {
+            $session = new \Anax\Session\CSession();
+            $session->configure(ANAX_APP_PATH . 'config/session.php');
+            $session->name();
+            //$session->start();
+            return $session;
+        });
+        
         $m->set($this->msg, 'hello' );
         $r = $m->get('hello');
         $this->assertStringEndsWith($this->textEnd, $r);

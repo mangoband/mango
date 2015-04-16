@@ -21,7 +21,7 @@ class CFlash implements \Anax\DI\IInjectionAware
         
         
         if ( array_key_exists( $type, $this->msgTypes )){
-            $this->setSession( $this->msgTypes[$type], $message );
+            $this->session->set($this->msgTypes[$type], $message);
         }
         
     }
@@ -39,7 +39,8 @@ class CFlash implements \Anax\DI\IInjectionAware
                 'hello' => 'Hello '];
         
         if ( array_key_exists( $type, $this->msgTypes )){
-            $m =    $msg[$type].$this->getSession( $this->msgTypes[$type] ); 
+            
+            $m =    $msg[$type].$this->session->get($this->msgTypes[$type]);
             $c = $this->msgTypes[$type];
             $this->unsetSession( $this->msgTypes[$type] );
         } else { 
@@ -54,29 +55,12 @@ class CFlash implements \Anax\DI\IInjectionAware
     }
    
     /**
-     *    setSession
-     */    
-    private function setSession($name = null, $message = null ){
-        if ( ! is_null( $name ) && ! is_null( $message ) ){
-            $_SESSION[$name] = $message;
-        }
-    }
-    
-    /**
-     *  getSession
-     */  
-    private function getSession( $name = null ){
-        if ( isset( $_SESSION[$name] )){
-            return $_SESSION[$name];
-        }
-        
-    }
-    
-    /**
      *  unsetSession
      */
     private function unsetSession( $name ){
-        unset( $_SESSION[$name]);
+        if ( isset( $_SESSION[$name] )){
+            unset( $_SESSION[$name]);
+        }
     }
     
     
