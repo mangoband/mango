@@ -106,7 +106,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetHello(){
         
-        $$m = $this->getDI();
+        $m = $this->getDI();
         
         $m->set($this->msg, 'hello' );
         $this->assertStringEndsWith($this->textEnd, $m->get('hello'));
