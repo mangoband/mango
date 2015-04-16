@@ -1,5 +1,6 @@
 /* css for flash */
 
+.flash_hello,
 .flash_error,
 .flash_notice,
 .flash_warning,
@@ -14,6 +15,7 @@
     background-color:#F00;
 }
 
+.flash_hello,
 .flash_notice{
     
     color:#000;

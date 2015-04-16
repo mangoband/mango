@@ -8,7 +8,9 @@ class CFlash  implements \Anax\DI\IInjectionAware
 {
     use \Anax\DI\TInjectable;
     
-    
+    private $msgTypes = ['notice' => 'flash_notice', 'error' => 'flash_error',
+                     'warning' => 'flash_warning', 'success' => 'flash_success',
+                     'hello' => 'flash_hello'];
     /**
      *  set
      *  @param string $message  Your description
@@ -17,35 +19,10 @@ class CFlash  implements \Anax\DI\IInjectionAware
     public function set( $message = '', $type = 'notice' ){
         $type = strtolower( $type );
         
-        switch( $type ){
-            
-            case 'notice':
-                
-                $this->setSession('flash_notice', $message);
-                break;
-            
-            case 'error':
-                
-                $this->setSession('flash_error', $message);
-                break;
-            
-            case 'warning':
-                
-                $this->setSession('flash_warning', $message);
-                break;
-            
-            case 'success':
-                
-                $this->setSession('flash_success', $message);
-                break;
-            
-            case 'hello':
-                
-                $this->setSession('flash_hello', $message);
-                break;
-            
-        }
         
+        if ( array_key_exists( $type, $this->msgTypes )){
+            $this->setSession( $this->msgTypes[$type], $message );
+        }
         
     }
     
@@ -56,51 +33,20 @@ class CFlash  implements \Anax\DI\IInjectionAware
      */
     public function get( $type = 'notice' ){
         $now = date('H:i:s');
-        switch( $type ){
-            case 'notice':
-                
-                
-                $c = 'flash_notice';
-                $m = $now.": For notice ".$this->getSession('flash_notice');
-                $this->unsetSession( 'flash_notice');
-                break;
-            
-            
-            case 'error':
-                
-                
-                $c = 'flash_error';
-                $m = $now.": Error ".$this->getSession('flash_error');
-                $this->unsetSession( 'flash_error');
-                break;
-            
-            
-            case 'warning':
-                
-                
-                $c = 'flash_warning';
-                $m = $now.": Warning!!! ".$this->getSession('flash_warning');
-                $this->unsetSession( 'flash_warning');
-                break;
-            
-            case 'success':
-                
-                
-                $c = 'flash_success';
-                $m = $now.": Success! ".$this->getSession('flash_success');
-                $this->unsetSession( 'flash_success');
-                break;
-            
-            case 'hello':
-                
-                
-                $c = 'flash_notice';
-                $m = "Hello ".$this->getSession('flash_hello');
-                $this->unsetSession( 'flash_hello');
-                break;
-            default: $m = null; $c = null;
-            
+        
+        $msg = ['notice' => $now.' For notice ', 'error' => $now.' Error ',
+                'warning' => $now.' Warning!!! ', 'success' => $now.' Success! ',
+                'hello' => 'Hello '];
+        
+        if ( array_key_exists( $type, $this->msgTypes )){
+            $m =    $msg[$type].$this->getSession( $this->msgTypes[$type] ); 
+            $c = $this->msgTypes[$type];
+            $this->unsetSession( $this->msgTypes[$type] );
+        } else { 
+            $m = null;
+            $c = null;
         }
+        
         if ( ! is_null( $m ) && ! is_null( $c )){
             
             return "\n\t<p class='{$c}'>{$m}</p>";
@@ -123,6 +69,7 @@ class CFlash  implements \Anax\DI\IInjectionAware
         if ( isset( $_SESSION[$name] )){
             return $_SESSION[$name];
         }
+        
     }
     
     /**

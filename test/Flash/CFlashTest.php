@@ -20,24 +20,14 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
          $this->assertNull($expected);    
     }
     
-    /**
-     *  test wrong value in
-     */
-    public function testWrongValueNotice(){
-        
-        $m = new CFlash();
-        $msg = 'message';
-        $expected = $m->set($msg, 'wrong' );
-        $r = $m->get('wrong');
-       
-         $this->assertNull($expected);    
-    }
-    
     
     /**
      *  test SetAndGet Notice
      */
     public function testSetAndGetNotice(){
+        
+        
+            
         
         $m = new CFlash();
         $msg = 'message';
