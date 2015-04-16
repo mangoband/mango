@@ -8,6 +8,8 @@ php:
     - wget https://scrutinizer-ci.com/ocular.phar
     - composer install
     
-  script: 
-    - phpunit --bootstrap test/config.php test
+  script:
+    #- phpunit --bootstrap test/config.php test
+    #- phpunit --bootstrap test/config.php --coverage-clover coverage.clover test
+    - phpunit
     
