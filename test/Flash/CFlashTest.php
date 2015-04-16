@@ -30,7 +30,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
             
             return $session;
         });
-        return $m;
+       
     }
     /**
      *  test null Notice
@@ -62,10 +62,8 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
      */
     public function testSetAndGetNotice(){
         
-        $m = $this->getDI();
-        
+        $m = $this->getDI();       
         $m->set($this->msg, 'notice' );
-        $r = $m->get('notice');
         $this->assertStringEndsWith($this->textEnd, $r);
         
     }
@@ -76,10 +74,8 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
     public function testSetAndGetError(){
         
         $m = $this->getDI();
-        
         $m->set($this->msg, 'error' );
-        $r = $m->get('error');
-        $this->assertStringEndsWith($this->textEnd, $r);
+        $this->assertStringEndsWith($this->textEnd, $m->get('error'));
       
     }
     
@@ -89,10 +85,8 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
     public function testSetAndGetWarning(){
         
         $m = $this->getDI();
-        
         $m->set($this->msg, 'warning' );
-        $r = $m->get('warning');
-        $this->assertStringEndsWith($this->textEnd, $r);
+        $this->assertStringEndsWith($this->textEnd, $m->get('warning'));
        
     }
     
@@ -102,10 +96,8 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
     public function testSetAndGetSuccess(){
         
         $m = $this->getDI();
-        
         $m->set($this->msg, 'success' );
-        $r = $m->get('success');
-        $this->assertStringEndsWith($this->textEnd, $r);
+        $this->assertStringEndsWith($this->textEnd, $m->get('success'));
         
     }
     
@@ -127,8 +119,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
         });
         
         $m->set($this->msg, 'hello' );
-        $r = $m->get('hello');
-        $this->assertStringEndsWith($this->textEnd, $r);
+        $this->assertStringEndsWith($this->textEnd, $m->get('hello'));
         
     }
     
