@@ -3,8 +3,8 @@
 include __DIR__ . "/../test/config.php";
 
 
- $di    = new \Anax\DI\CDIFactoryDefault();
-        $m = new \Mango\Flash\CFlash();
+        $di = new \Anax\DI\CDIFactoryDefault();
+        $m  = new \Mango\Flash\CFlash();
         $m->setDI($di);
         
         $di->setShared('session', function () {
@@ -14,11 +14,7 @@ include __DIR__ . "/../test/config.php";
             //$session->start();
             return $session;
         });
-       /* $di->setShared('MangoFlash', function()   {
-            $flash = new \Mango\Flash\CFlash();
-            $flash->setDI($di);
-            return $flash;
-        });*/
+        
         $app = new \Anax\Kernel\CAnax($di);
     $app->theme->addStylesheet('css/flash.css');
     
@@ -27,7 +23,7 @@ include __DIR__ . "/../test/config.php";
     $name       = "Developer, this is a way to show you how this module could look in your browser.";
     
  
-    
+    //$app->MangoFlash( $message, 'notice');
     $m->set( $message , $type = 'notice' );
     $m->set( $message , $type = 'warning' );
     $m->set( $message , $type = 'error' );
@@ -49,6 +45,7 @@ include __DIR__ . "/../test/config.php";
 <html class='no-js' lang='sv'>
 <head>
 <meta charset='utf-8'/>
+<title>CFlash</title>
 <link rel='stylesheet' type='text/css' href='<?=$stylesheet?>'/>
 </head>
 <body>

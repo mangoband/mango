@@ -1,7 +1,7 @@
 MangoFlash
 ==========
 
-This is a module developed during studies at BTH
+This is a module developed during studies at BTH 
 
 It flashes your information.
 
