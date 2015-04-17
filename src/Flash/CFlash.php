@@ -8,7 +8,7 @@ class CFlash implements \Anax\DI\IInjectionAware
 {
     use \Anax\DI\TInjectable;
     
-    private $msgTypes = ['notice' => 'flash_notice', 'error' => 'flash_error',
+    protected $msgTypes = ['notice' => 'flash_notice', 'error' => 'flash_error',
                      'warning' => 'flash_warning', 'success' => 'flash_success',
                      'hello' => 'flash_hello'];
     /**
@@ -19,7 +19,6 @@ class CFlash implements \Anax\DI\IInjectionAware
     public function set( $message = '', $type = 'notice' ){
         $type = strtolower( $type );
         
-        
         if ( array_key_exists( $type, $this->msgTypes )){
             $this->session->set($this->msgTypes[$type], $message);
         }
@@ -28,7 +27,7 @@ class CFlash implements \Anax\DI\IInjectionAware
     
     /**
      *  get
-     *  @param string $type ( notice || error || warning )
+     *  @param string $type ( notice || error || warning || success )
      *  @return string $htmlcode
      */
     public function get( $type = 'notice' ){
@@ -38,12 +37,12 @@ class CFlash implements \Anax\DI\IInjectionAware
                 'warning' => $now.' Warning!!! ', 'success' => $now.' Success! ',
                 'hello' => 'Hello '];
         
-        if ( array_key_exists( $type, $this->msgTypes )){
-            
-            $m =    $msg[$type].$this->session->get($this->msgTypes[$type]);
+        if ( array_key_exists( $type, $this->msgTypes ) ){
+           
+            $m = $msg[$type].$this->session->get($this->msgTypes[$type]);
             $c = $this->msgTypes[$type];
             $this->unsetSession( $this->msgTypes[$type] );
-        } else { 
+        } else {
             $m = null;
             $c = null;
         }

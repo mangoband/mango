@@ -12,11 +12,6 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
     private $msg        = 'message';
     private $textEnd    = '</p>';
     
-    public function __construct(){
-        $this->CFlash = new CFlash();
-        
-    }
-    
     protected function getDI(  ){
         $di    = new \Anax\DI\CDIFactoryDefault();
         $m = new CFlash();
@@ -29,6 +24,7 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
             
             return $session;
         });
+        
         return $m;
        
     }
@@ -55,7 +51,6 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
          $this->assertNull($m->set($this->msg, 'wrong' ));
          $this->assertNull($r);
     }
-    
     
     /**
      *  test SetAndGet Notice
@@ -111,7 +106,6 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
         $m->set($this->msg, 'hello' );
         $this->assertStringEndsWith($this->textEnd, $m->get('hello'));
         
-    }
-    
+    }    
     
 }
