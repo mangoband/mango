@@ -13,4 +13,7 @@ script:
   #- phpunit --bootstrap test/config.php test
   #- phpunit --bootstrap test/config.php --coverage-clover coverage.clover test
   - phpunit
+
+after_script:
+    - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
   
