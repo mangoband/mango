@@ -36,8 +36,8 @@ class CFlashTest extends \PHPUnit_Framework_TestCase {
         $m = $this->getDI();
         
         $r = $m->get('notice');
-        $this->assertNull($m->set($this->msg, '' ));
-        $this->assertStringEndsWith($this->textEnd, $r);
+        $this->assertNull($m->set($this->msg, '' )); 
+        $this->assertNull($r);
     }
     
     /**
