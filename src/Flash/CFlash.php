@@ -39,7 +39,7 @@ class CFlash implements \Anax\DI\IInjectionAware
         
         if ( array_key_exists( $type, $this->msgTypes ) ){
            
-            $m = $msg[$type].$this->session->get($this->msgTypes[$type]);
+            $m =  ($this->getSession( $this->msgTypes[$type] ) ) ?  $msg[$type].$this->getSession( $this->msgTypes[$type] ): null; 
             $c = $this->msgTypes[$type];
             $this->unsetSession( $this->msgTypes[$type] );
         } else {

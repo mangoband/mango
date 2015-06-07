@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1429260118">
-  <project timestamp="1429260118">
+<coverage generated="1429295789">
+  <project timestamp="1429295789">
     <file name="G:\htdocs\bth\phpmvc\Kmom5\mango\cflash/autoloader.php">
       <line num="18" type="stmt" count="0"/>
       <line num="21" type="stmt" count="0"/>
@@ -22,31 +22,31 @@
         </class>
         <line num="19" type="method" name="set" crap="2" count="7"/>
         <line num="20" type="stmt" count="7"/>
-        <line num="23" type="stmt" count="7"/>
+        <line num="22" type="stmt" count="7"/>
+        <line num="23" type="stmt" count="5"/>
         <line num="24" type="stmt" count="5"/>
-        <line num="25" type="stmt" count="5"/>
-        <line num="27" type="stmt" count="7"/>
-        <line num="34" type="method" name="get" crap="4" count="7"/>
-        <line num="35" type="stmt" count="7"/>
+        <line num="26" type="stmt" count="7"/>
+        <line num="33" type="method" name="get" crap="4" count="7"/>
+        <line num="34" type="stmt" count="7"/>
+        <line num="36" type="stmt" count="7"/>
         <line num="37" type="stmt" count="7"/>
         <line num="38" type="stmt" count="7"/>
-        <line num="39" type="stmt" count="7"/>
-        <line num="41" type="stmt" count="7"/>
+        <line num="40" type="stmt" count="7"/>
+        <line num="42" type="stmt" count="6"/>
         <line num="43" type="stmt" count="6"/>
         <line num="44" type="stmt" count="6"/>
         <line num="45" type="stmt" count="6"/>
-        <line num="46" type="stmt" count="6"/>
+        <line num="46" type="stmt" count="1"/>
         <line num="47" type="stmt" count="1"/>
-        <line num="48" type="stmt" count="1"/>
-        <line num="51" type="stmt" count="7"/>
-        <line num="53" type="stmt" count="6"/>
-        <line num="55" type="stmt" count="1"/>
-        <line num="60" type="method" name="unsetSession" crap="2" count="6"/>
-        <line num="61" type="stmt" count="6"/>
+        <line num="50" type="stmt" count="7"/>
+        <line num="52" type="stmt" count="6"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="59" type="method" name="unsetSession" crap="2" count="6"/>
+        <line num="60" type="stmt" count="6"/>
+        <line num="61" type="stmt" count="5"/>
         <line num="62" type="stmt" count="5"/>
-        <line num="63" type="stmt" count="5"/>
-        <line num="64" type="stmt" count="6"/>
-        <metrics loc="67" ncloc="51" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="26" coveredelements="26"/>
+        <line num="63" type="stmt" count="6"/>
+        <metrics loc="66" ncloc="50" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="26" coveredelements="26"/>
       </file>
     </package>
     <file name="G:\htdocs\bth\phpmvc\Kmom5\mango\cflash/vendor/anax/mvc/app/config/error_reporting.php">
@@ -71,7 +71,7 @@
     <package name="Anax\DI">
       <file name="G:\htdocs\bth\phpmvc\Kmom5\mango\cflash/vendor/anax/mvc/src/DI/CDI.php">
         <class name="CDI" namespace="Anax\DI">
-          <metrics methods="10" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="19" elements="46" coveredelements="24"/>
+          <metrics methods="10" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="18" elements="45" coveredelements="23"/>
         </class>
         <line num="0" type="stmt" count="1"/>
         <line num="26" type="method" name="__construct" crap="1" count="7"/>
@@ -120,7 +120,7 @@
         <line num="202" type="stmt" count="6"/>
         <line num="203" type="stmt" count="6"/>
         <line num="206" type="stmt" count="1"/>
-        <metrics loc="205" ncloc="107" classes="1" methods="10" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="19" elements="46" coveredelements="22"/>
+        <metrics loc="205" ncloc="107" classes="1" methods="10" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="18" elements="45" coveredelements="21"/>
       </file>
       <file name="G:\htdocs\bth\phpmvc\Kmom5\mango\cflash/vendor/anax/mvc/src/DI/CDIFactoryDefault.php">
         <class name="CDIFactoryDefault" namespace="Anax\DI">
@@ -269,11 +269,15 @@
         <line num="95" type="stmt" count="0"/>
         <line num="98" type="stmt" count="0"/>
         <line num="99" type="stmt" count="0"/>
+        <line num="103" type="stmt" count="1"/>
         <metrics loc="102" ncloc="69" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="5" elements="29" coveredelements="6"/>
       </file>
     </package>
     <file name="G:\htdocs\bth\phpmvc\Kmom5\mango\cflash/vendor/anax/mvc/src/DI/IDI.php">
       <metrics loc="19" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="G:\htdocs\bth\phpmvc\Kmom5\mango\cflash/vendor/anax/mvc/src/DI/IInjectionAware.php">
+      <metrics loc="18" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <package name="Anax\Session">
       <file name="G:\htdocs\bth\phpmvc\Kmom5\mango\cflash/vendor/anax/mvc/src/Session/CSession.php">
@@ -533,6 +537,6 @@
       <line num="50" type="stmt" count="0"/>
       <metrics loc="50" ncloc="48" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="27" coveredelements="0"/>
     </file>
-    <metrics files="12" loc="1226" ncloc="788" classes="8" methods="46" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="410" coveredstatements="135" elements="456" coveredelements="147"/>
+    <metrics files="13" loc="1243" ncloc="794" classes="8" methods="46" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="409" coveredstatements="134" elements="455" coveredelements="146"/>
   </project>
 </coverage>
